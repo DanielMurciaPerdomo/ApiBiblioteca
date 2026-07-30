@@ -1,13 +1,12 @@
-package com.biblioteca.biblioteca.api;
+package com.biblioteca.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiBibliotecaApplication {
+public class ApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiBibliotecaApplication.class, args);
+        SpringApplication.run(ApiApplication.class, args);
     }
-
 }

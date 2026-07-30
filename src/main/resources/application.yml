@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DB_URI:jdbc:mysql://localhost:3306/biblioteca}
+    username: ${DB_USER:biblioteca_user}
+    password: ${DB_PASSWORD:biblioteca_pass}
+    driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect

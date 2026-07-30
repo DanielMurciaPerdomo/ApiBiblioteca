@@ -1,8 +1,10 @@
-HELP.md
 target/
+.idea/
+*.iml
+.env
 .mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+*.log
+!database/backup/biblioteca.dump
 
 ### STS ###
 .apt_generated
@@ -12,12 +14,6 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
 
 ### NetBeans ###
 /nbproject/private/

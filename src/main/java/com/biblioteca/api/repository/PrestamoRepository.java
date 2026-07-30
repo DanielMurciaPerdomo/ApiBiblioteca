@@ -15,4 +15,6 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
     List<Prestamo> findByUsuarioId(Long usuarioId);
 
     List<Prestamo> findByEjemplarLibroId(Long libroId);
+
+    List<Prestamo> findByUsuarioIdAndEjemplarLibroId(Long usuarioId, Long libroId);
 }

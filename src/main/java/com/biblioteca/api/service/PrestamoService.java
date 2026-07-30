@@ -67,11 +67,33 @@ public class PrestamoService {
     }
 
     @Transactional(readOnly = true)
+    public List<PrestamoResponse> listarTodos() {
+        return prestamoRepository.findAll().stream()
+                .map(this::recalcularEstado)
+                .map(this::toResponse)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public List<PrestamoResponse> listarPorUsuario(Long usuarioId) {
         if (!usuarioRepository.existsById(usuarioId)) {
             throw new ResourceNotFoundException("Usuario", "id", usuarioId);
         }
         return prestamoRepository.findByUsuarioId(usuarioId).stream()
+                .map(this::recalcularEstado)
+                .map(this::toResponse)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<PrestamoResponse> listarPorUsuarioYLibro(Long usuarioId, Long libroId) {
+        if (!usuarioRepository.existsById(usuarioId)) {
+            throw new ResourceNotFoundException("Usuario", "id", usuarioId);
+        }
+        if (!libroRepository.existsById(libroId)) {
+            throw new ResourceNotFoundException("Libro", "id", libroId);
+        }
+        return prestamoRepository.findByUsuarioIdAndEjemplarLibroId(usuarioId, libroId).stream()
                 .map(this::recalcularEstado)
                 .map(this::toResponse)
                 .toList();

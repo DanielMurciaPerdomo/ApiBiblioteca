@@ -19,6 +19,12 @@ cp .env.example .env
 # 3. Levantar la aplicación con Docker Compose
 docker compose up -d --build
 ```
+La aplicación está configurada en `application.yml` con:
+```yaml
+jpa:
+  hibernate:
+    ddl-auto: validate
+```
 
 La API estará disponible en `http://localhost:8080/api`.
 
@@ -76,8 +82,14 @@ Generar un dump de la base de datos:
 docker exec biblioteca_db mysqldump --no-tablespaces -u biblioteca_user -pbiblioteca_pass biblioteca > database/backup/biblioteca.dump
 ```
 
-Restaurar un dump existente:
+Restaurar un dump existente usando CMD:
 
 ```bash
 docker exec -i biblioteca_db mysql -u biblioteca_user -pbiblioteca_pass biblioteca < database/backup/biblioteca.dump
+```
+
+Restaurar un dump existente usando PowerShell:
+
+```bash
+Get-Content database/backup/biblioteca.dump | docker exec -i biblioteca_db mysql -u biblioteca_user -pbiblioteca_pass biblioteca
 ```

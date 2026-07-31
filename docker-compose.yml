@@ -4,7 +4,7 @@ services:
     container_name: biblioteca_api
     restart: unless-stopped
     environment:
-      DB_URI: jdbc:mysql://db:3306/${DB_NAME}
+      DB_URI: jdbc:mysql://db:3306/${DB_NAME}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DRIVER: com.mysql.cj.jdbc.Driver

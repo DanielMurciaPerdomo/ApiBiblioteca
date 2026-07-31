@@ -75,20 +75,20 @@ Base path: `/api`
 
 ## Respaldo de la base de datos
 
-Generar un dump de la base de datos:
+### Generar un dump de la base de datos:
 
 ```bash
-# Generar un dump de la base de datos:
+
 docker exec biblioteca_db mysqldump --no-tablespaces -u biblioteca_user -pbiblioteca_pass biblioteca > database/backup/biblioteca.dump
 ```
 
-Restaurar un dump existente usando CMD:
+### Restaurar un dump existente usando CMD:
 
 ```bash
 docker exec -i biblioteca_db mysql -u biblioteca_user -pbiblioteca_pass biblioteca < database/backup/biblioteca.dump
 ```
 
-Restaurar un dump existente usando PowerShell:
+### Restaurar un dump existente usando PowerShell:
 
 ```bash
 Get-Content database/backup/biblioteca.dump | docker exec -i biblioteca_db mysql -u biblioteca_user -pbiblioteca_pass biblioteca

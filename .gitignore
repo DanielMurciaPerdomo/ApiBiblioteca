@@ -4,6 +4,8 @@ target/
 .env
 .mvn/wrapper/maven-wrapper.jar
 *.log
+.DS_Store
+HELP.md
 !database/backup/biblioteca.dump
 
 ### STS ###
